@@ -9,7 +9,7 @@ const server = createServer(app)
 
 const io = new Server(server , {
   cors:{
-    origin:"https://kishangupta-made2automate.netlify.app/",
+    origin:"https://667bd732f69c40d514ee74be--tangerine-daifuku-85610d.netlify.app/",
     methods:["GET","POST"],
     credentials:true
   }
