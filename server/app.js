@@ -9,11 +9,23 @@ const server = createServer(app)
 
 const io = new Server(server , {
   cors:{
-    origin:"https://667bd732f69c40d514ee74be--tangerine-daifuku-85610d.netlify.app/",
+    origin:"*",
     methods:["GET","POST"],
     credentials:true
   }
 })
+
+app.use((req, res, next) => {
+  const allowedOrigins = ['https://667bd732f69c40d514ee74be--tangerine-daifuku-85610d.netlify.app'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 
 app.get("/", (req,res)=>{
   res.send("Hello World")
