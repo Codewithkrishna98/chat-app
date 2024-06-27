@@ -45,7 +45,6 @@ socket.on("meassage", ({meassage,room})=>{
 
  socket.on("join-room",(room)=>{
    socket.join(room)
-   alert(`you have joined the ${room} `)
    console.log(`user  has join the room ${room}`)
  })
 
